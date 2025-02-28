@@ -2,7 +2,6 @@
 
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
@@ -12,15 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('tramos', function (Blueprint $table) {
+        Schema::create('reservas', function (Blueprint $table) {
             $table->id();
-            $table->time('horario');
+            $table->foreignId('user_id')->constrained();
             $table->foreignId('dia_id')->constrained();
+            $table->foreignId('tramo_id')->constrained();
             $table->timestamps();
         });
-
-
-
     }
 
     /**
@@ -28,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('tramos');
+        Schema::dropIfExists('reservas');
     }
 };

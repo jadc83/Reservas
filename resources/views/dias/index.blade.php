@@ -1,4 +1,7 @@
 <x-app-layout>
+    @php
+
+    @endphp
     <div class="flex w-10/12 mx-auto justify-center space-x-8">
         @foreach ($dias as $dia)
             <div class="flex flex-col items-center"> <!-- Contenedor para cada día -->
